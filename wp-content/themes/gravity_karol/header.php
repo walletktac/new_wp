@@ -46,6 +46,16 @@
                         ?>
                     </nav><!-- #site-navigation -->
                     
+                    
+                    <nav class="social-nav">
+                        <h2>Social menu</h2>
+                        <?php
+                        wp_nav_menu(array(
+                            'theme_location' => 'social',
+                            'menu_id' => 'social-menu',
+                        ));
+                        ?>
+                    </nav>
                     <!--                <ul class="social-nav">
                                         <li><a href=""><i class="flaticon-facebook-logo-button"></i></a></li>
                                         <li><a href=""><i class="flaticon-twitter-logo-button"></i></a></li>

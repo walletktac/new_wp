@@ -11,23 +11,16 @@
  *
  * @package gravity_karol
  */
+get_header();
+?>
 
-get_header(); ?>
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-                    <!-- Start homepage content -->
+<div id="primary" class="content-area">
+    <main id="main" class="site-main">
+        <!-- Start homepage content -->
         <div class="main-page">
             <div class="main-baner">
                 <h1>Join the force</h1>
                 <p>Join our newsletter a receive free updates</p>
-                <div class="form-newsletter">
-                    <form>
-                        <input type="text" name="name" placeholder="Your Name"/>
-                        <input type="email" name="email" placeholder="Your e-mail"/>
-                        <button type="submit">subscribe</button>
-                    </form>
-                </div>
             </div>
 
             <section id="s1">
@@ -63,45 +56,34 @@ get_header(); ?>
 
             </section>
 
-            
+
             <section id="s2">
                 <div class="about-us wrapper">
                     <h2>What our clients think about us</h2>
 
                     <div class="slider-about-us">
-                        <div class="item-slider">
-                            <div class="item-comment">
-                                <p>
-                                    Te veniam electram consequuntur duo. Nibh oratio ex nam, ne per solum mollis prompta, te vel movet zril sensibus quis munere adipiscing prohas lorem mucius democritum sed nefty sonet efficiantur autem vim et qui facilisi eam adipisci assentior inimicus.
-                                </p>
+
+
+                        <?php /* reference */ ?>
+
+                        <?php $reference = new WP_Query('category_name=reference&posts_per_page=3'); ?> 
+
+                        <?php while ($reference->have_posts()) : $reference->the_post(); ?>
+
+                            <div class="item-slider">
+                                <div class="item-comment">
+                                    <p>
+                                        <?php the_content(); ?>
+                                    </p>
+                                </div>
+                                <div class="item-author">
+                                    <p>Author: <span><?php the_title(); ?></span></p>
+
+                                </div>
                             </div>
-                            <div class="item-author">
-                                <p>Author: <span>Jan Kowalski</span></p>
-                                
-                            </div>
-                        </div>
-                        <div class="item-slider">
-                            <div class="item-comment">
-                                <p>
-                                    Te veniam electram consequuntur duo. Nibh oratio ex nam, ne per solum mollis prompta, te vel movet zril sensibus quis munere adipiscing prohas lorem mucius democritum sed nefty sonet efficiantur autem vim et qui facilisi eam adipisci assentior inimicus.
-                                </p>
-                            </div>
-                            <div class="item-author">
-                                <p>Author: <span>Jan Kowalski</span></p>
-                                
-                            </div>
-                        </div>
-                        <div class="item-slider">
-                            <div class="item-comment">
-                                <p>
-                                    Te veniam electram consequuntur duo. Nibh oratio ex nam, ne per solum mollis prompta, te vel movet zril sensibus quis munere adipiscing prohas lorem mucius democritum sed nefty sonet efficiantur autem vim et qui facilisi eam adipisci assentior inimicus.
-                                </p>
-                            </div>
-                            <div class="item-author">
-                                <p>Author: <span>Jan Kowalski</span></p>
-                                
-                            </div>
-                        </div>
+
+                        <?php endwhile; ?>
+
                     </div>
 
                 </div>
@@ -123,34 +105,25 @@ get_header(); ?>
                 <div class="the-team wrapper">
                     <h2>the team</h2>
                     <div class="team-content">
-                        <div class="item-team">
-                            <div class="team-player__img"></div>
-                            <div class="player-name">
-                                <p>Simon Bolt</p>
-                                <p>UX Designer</p>
+
+                        <?php /* TEAM */ ?>
+
+                        <?php $myteam = new WP_Query('category_name=team-players&posts_per_page=4'); ?> 
+
+                        <?php while ($myteam->have_posts()) : $myteam->the_post(); ?>
+
+                            <div class="item-team">
+                                <div class="team-player__img">
+                                    <?php the_post_thumbnail(); ?>
+                                </div>
+                                <div class="player-name">
+                                    <p><?php the_title(); ?></p>
+                                    <p><?php echo get_post_meta($post->ID, 'profession', true) ?></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="item-team">
-                            <div class="team-player__img"></div>
-                            <div class="player-name">
-                                <p>Simon Bolt</p>
-                                <p>UX Designer</p>
-                            </div>
-                        </div>
-                        <div class="item-team">
-                            <div class="team-player__img"></div>
-                            <div class="player-name">
-                                <p>Simon Bolt</p>
-                                <p>UX Designer</p>
-                            </div>
-                        </div>
-                        <div class="item-team">
-                            <div class="team-player__img"></div>
-                            <div class="player-name">
-                                <p>Simon Bolt</p>
-                                <p>UX Designer</p>
-                            </div>
-                        </div>
+
+                        <?php endwhile; ?>
+
                     </div>
                 </div>
             </section>
@@ -158,36 +131,26 @@ get_header(); ?>
                 <div class="gallery wrapper">
                     <h2>Gallery</h2>
                     <div class="gallery-masonry">
-                        <figure class="item-masonry" data-src="<?php echo get_template_directory_uri(); ?>/images/gravity1.jpg">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/gravity1.jpg" alt="" class="item-masonry__img">
-                        </figure>
-                        <figure class="item-masonry" data-src="<?php echo get_template_directory_uri(); ?>/images/gravity2.jpg">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/gravity2.jpg" alt="" class="item-masonry__img">
-                        </figure>
-                        <figure class="item-masonry" data-src="<?php echo get_template_directory_uri(); ?>/images/gravity3.jpg">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/gravity3.jpg" alt="" class="item-masonry__img">
-                        </figure>
-                        <figure class="item-masonry" data-src="<?php echo get_template_directory_uri(); ?>/images/gravity4.jpg">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/gravity4.jpg" alt="" class="item-masonry__img">
-                        </figure>
-                        <figure class="item-masonry" data-src="<?php echo get_template_directory_uri(); ?>/images/gravity1.jpg">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/gravity1.jpg" alt="" class="item-masonry__img">
-                        </figure>
-                        <figure class="item-masonry" data-src="<?php echo get_template_directory_uri(); ?>/images/gravity2.jpg">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/gravity2.jpg" alt="" class="item-masonry__img">
-                        </figure>
-                        <figure class="item-masonry" data-src="<?php echo get_template_directory_uri(); ?>/images/gravity3.jpg">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/gravity3.jpg" alt="" class="item-masonry__img">
-                        </figure>
-                        <figure class="item-masonry" data-src="<?php echo get_template_directory_uri(); ?>/images/gravity4.jpg">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/gravity4.jpg" alt="" class="item-masonry__img">
-                        </figure>
+
+
+                        <?php /* Gallery */ ?>
+
+                        <?php $mygallery = new WP_Query('category_name=gallery&posts_per_page=8'); ?> 
+
+                        <?php while ($mygallery->have_posts()) : $mygallery->the_post(); ?>
+
+                            <figure class="item-masonry" data-src="<?php the_post_thumbnail_url('full'); ?>  " >
+                                <?php the_post_thumbnail('thumbnail', array('class' => 'item-masonry__img')); ?>
+                            </figure>
+
+                        <?php endwhile; ?>
+
                     </div>
                 </div>
             </section>
         </div>
-		
-		</main><!-- #main -->
-	</div><!-- #primary -->
+
+    </main><!-- #main -->
+</div><!-- #primary -->
 <?php
 get_footer();

@@ -45,6 +45,7 @@ if ( ! function_exists( 'gravity_karol_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', 'gravity_karol' ),
+			'social' => esc_html__( 'Social-menu', 'gravity_karol' ),
 		) );
 
 		/*
@@ -110,6 +111,15 @@ function gravity_karol_widgets_init() {
 		'description'   => esc_html__( 'Add widgets here.', 'gravity_karol' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+        register_sidebar( array(
+		'name'          => esc_html__( 'Footer', 'gravity_karol' ),
+		'id'            => 'footer',
+		'description'   => esc_html__( '(maksymalnie 4 widgety)', 'gravity_karol' ),
+		'before_widget' => '<div id="%1$s" class="footer-column widget %2$s">',
+		'after_widget'  => '</div>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );

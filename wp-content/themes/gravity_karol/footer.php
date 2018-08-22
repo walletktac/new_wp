@@ -14,7 +14,7 @@
 
 <footer>
     <div class="wrapper footer">
-        <div class="footer-column">
+<!--        <div class="footer-column">
             <div class="footer-column__head">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/logo-footer.png" alt="logo"/>
             </div>
@@ -22,16 +22,16 @@
                 <span>&copy; 2018 - All Rights Reserved to <br>
                     <b>PixelHint.com</b></span>
             </div>
-        </div>
-        <div class="footer-column">
+        </div>-->
+<!--        <div class="footer-column">
             <div class="footer-column__head">
                 <p>What is pristine.</p>
             </div>
             <div class="footer-column__main">
                 <span>Elegancy is a unique HTML5, & CSS website template, it’s fully responsive, SEO and fast speed optimzed and beautiful.</span>
             </div>
-        </div>
-        <div class="footer-column">
+        </div>-->
+<!--        <div class="footer-column">
             <div class="footer-column__head">
                 <p>Know more.</p>
             </div>
@@ -43,8 +43,8 @@
                     <li><a href="">Services</a></li>
                 </ul>
             </div>
-        </div>
-        <div class="footer-column">
+        </div>-->
+<!--        <div class="footer-column">
             <div class="footer-column__head">
                 <p>connect.</p>
             </div>
@@ -56,9 +56,10 @@
                     <li><a href=""><i class="flaticon-google-plus-logo-button"></i> <span>google plus</span></a></li>
                 </ul>
             </div>
-        </div>
-    </div>
-</footer><!-- #colophon -->
+        </div>-->
+        <?php dynamic_sidebar('footer'); ?>
+    </div><!-- .wrapper -->
+</footer><!-- footer -->
 </div><!-- #page -->
 
 
